@@ -4,6 +4,7 @@ var serveStatic = require('serve-static');
 var path = require('path');
 var morgan = require('morgan');
 var healthChecker = require('sc-framework-health-check');
+var jade = require('jade')
 
 class Worker extends SCWorker {
   run() {
