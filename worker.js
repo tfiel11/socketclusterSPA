@@ -32,7 +32,7 @@ class Worker extends SCWorker {
       // available formats.
       app.use(morgan('dev'));
     }
-    app.use(serveStatic(path.resolve(__dirname, 'public')));
+    app.use(serveStatic(path.resolve(__dirname, './public')));
 
     // Add GET /health-check express route
     healthChecker.attach(this, app);
