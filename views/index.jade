@@ -3,33 +3,37 @@ html
     head
         title= title 
     body
-        include ./navbar
-        script(src='../test.js')
 
-        div.container-fluid
-            .row
-                div.column-md-12(style="margin-top:50px")
-                    section(data-route="dashboard", style="display-none")
-                        include ./dashboard
+        .loading-page
+            img(src='/images/loading.gif', alt='Loading Gif')
 
-                    section(data-route="about", style="display-none")
-                        include ./about
+        .whole-page(style='display:none')
 
-                    section(data-route="about", style="display-none")
-                        include users
+            include navbar
+
+            div.container-fluid
+                .row
+                    div.column-md-12(style="margin-top:50px")
+                        section(data-route="dashboard", style="display:none")
+                            include dashboard
+
+                        section(data-route="about", style="display:none")
+                            include about
+
+                        section(data-route="users", style="display:none")
+                            include users
                         
-            //- script(src='/js/system/socketcluster.js')
+    script(src='/js/system/socketcluster.js')
 
-            //- script(src='public/js/libraries/jquery.min.js')
-            //- script(src='public/js/libraries/bootstrap.min.js')
-            //- script(src='public/js/libraries/director.min.js')
+    script(src='/js/libraries/jquery.min.js')
+    script(src='/js/libraries/director.min.js')
 
-            //- script(src='public/js/system/communication.min.js')
-            //- script(src='public/js/system/server.js')
-            //- script(src='/public/js/system/route.js')
+    script(src='/js/system/communication.min.js')
+    script(src='/js/system/server.js')
+    script(src='/js/system/route.js')
 
-            //- script(src='/js/models/about.js')
-            //- script(src='/js/models/dashboard.js')
-            //- script(src='/js/models/users.js')
+    script(src='/js/models/about.js')
+    script(src='/js/models/dashboard.js')
+    script(src='/js/models/users.js')
 
-            //- script(src='/public/js/system/startup.js')
+    script(src='/js/system/startup.js')

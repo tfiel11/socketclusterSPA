@@ -18,8 +18,11 @@ class Worker extends SCWorker {
 
     app.locals.pretty = true;
 
-    app.set('views', __dirname='./views');
+    app.set('views', __dirname+'/views');
     app.set('view engine', 'jade');
+
+
+    app.use(express.static(__dirname+'/public'));
 
     app.get('*', function(req, res) {
       res.render('index', {
@@ -32,7 +35,6 @@ class Worker extends SCWorker {
       // available formats.
       app.use(morgan('dev'));
     }
-    app.use(serveStatic(path.resolve(__dirname, './public')));
 
     // Add GET /health-check express route
     healthChecker.attach(this, app);
