@@ -4,7 +4,6 @@ var serveStatic = require('serve-static');
 var path = require('path');
 var morgan = require('morgan');
 var healthChecker = require('sc-framework-health-check');
-var jade = require('jade')
 
 class Worker extends SCWorker {
   run() {
@@ -47,7 +46,11 @@ class Worker extends SCWorker {
       In here we handle our incoming realtime connections and listen for events.
     */
     scServer.on('connection', function (client) {
+      console.log('Client ' +client.id+ 'has connected!');
 
+      client.on('messages', function(data) {
+        client.emit('response', data);
+      })
     });
   }
 }

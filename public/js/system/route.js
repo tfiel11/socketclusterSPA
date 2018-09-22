@@ -5,7 +5,7 @@ $(function () {
             notify('start-loading');
             $('section').hide();
             var hash = window.location.hash.slice(2);
-            if(isNan(hash[hash.length-1])) {
+            if(isNaN(hash[hash.length-1])) {
                 notify('build-' + hash)
             } else {
                 // must be an edit so it uses the function below

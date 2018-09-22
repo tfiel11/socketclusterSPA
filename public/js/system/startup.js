@@ -1,6 +1,6 @@
 $(function () {
     observe('bind', function() {
-
+        
     });
 })
 
