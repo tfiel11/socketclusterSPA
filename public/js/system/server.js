@@ -1,17 +1,13 @@
 $(function() {
     
-    var socket = socketCluster.connect({
+    var socket = socketCluster.connect();
 
+    socket.on('response', function(data) {
+        notify(data.notify,data)
     });
 
-    socket.on('connect', function() {
-        socket.emit('messages', {
-            id: 11,
-            name: 'Ty Man!'
-        })
-    })
-    socket.on('response', function(data) {
-        console.log(data)
-    })
+    observe('server', function(data) {
+        socket.emit('messages',data);
+    });
 
 })

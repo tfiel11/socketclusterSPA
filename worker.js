@@ -40,6 +40,8 @@ class Worker extends SCWorker {
 
     httpServer.on('request', app);
 
+    var ModelController = require('./controllers/ModelController.js')
+
     var count = 0;
 
     /*
@@ -49,8 +51,8 @@ class Worker extends SCWorker {
       console.log('Client ' +client.id+ 'has connected!');
 
       client.on('messages', function(data) {
-        client.emit('response', data);
-      })
+        ModelController[data.route][data.resource](client,data);
+      });
     });
   }
 }
